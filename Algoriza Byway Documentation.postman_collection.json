@@ -89,15 +89,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"if (pm.response.code === 200 || pm.response.code === 201) {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    if (jsonData.token) {\r",
-									"        pm.collectionVariables.set(\"token\", jsonData.token);\r",
-									"        console.log(\"\\u2713 Token saved successfully\");\r",
-									"    }\r",
-									"} else {\r",
-									"    console.log(\"\\u2717 Login failed, no token saved\");\r",
-									"}"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -108,7 +100,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"if (pm.response.code === 200 || pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.token) {",
+									"        pm.collectionVariables.set(\"token\", jsonData.token);",
+									"        console.log(\"✓ Token saved successfully\");",
+									"    }",
+									"} else {",
+									"    console.log(\"✗ Login failed, no token saved\");",
+									"}"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"/\\\\Z3=h:X:JRypQa],{e`=:6|m|QJF9L|y$&4e+enw}K`w[|))SSZpyT\"\r\n}",
+							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"phone\": \"0123456789\",\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"P@ssw0rd\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -961,6 +961,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					"// Common test script for validating JSON response, status codes, and required fields",
 					"function validateJsonResponse(requiredFields) {",
