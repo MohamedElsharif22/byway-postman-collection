@@ -177,7 +177,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/Courses",
+							"raw": "{{baseUrl}}/api/Courses?PageSize=10&InstructorId=1&Search=&Sort=1&PriceRange.Min=0&PriceRange.Max=0&RangeOfLectures.Min=100&RangeOfLectures.Max=150&PageIndex=2&Categories=1&Categories=2&Categories=3",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -189,60 +189,57 @@
 								{
 									"key": "PageSize",
 									"value": "10",
-									"description": "Number of results per page (default = 30, max = 30)",
-									"disabled": true
-								},
-								{
-									"key": "Categories",
-									"value": "1",
-									"description": "Filter courses by categories.",
-									"disabled": true
+									"description": "Number of results per page (default = 30, max = 30)"
 								},
 								{
 									"key": "InstructorId",
 									"value": "1",
-									"description": "Filter courses by Instructor",
-									"disabled": true
+									"description": "Filter courses by Instructor"
 								},
 								{
 									"key": "Search",
 									"value": "",
-									"description": "Search ocourse",
-									"disabled": true
+									"description": "Search ocourse"
 								},
 								{
 									"key": "Sort",
 									"value": "1",
-									"description": "Sorting option (1 = PriceAsc, 2 = PriceDesc, 3 = RatingAsc, 4 = RatingDesc, 5 = Newest, 6 = Oldest)",
-									"disabled": true
+									"description": "Sorting option (1 = PriceAsc, 2 = PriceDesc, 3 = RatingAsc, 4 = RatingDesc, 5 = Newest, 6 = Oldest)"
 								},
 								{
 									"key": "PriceRange.Min",
 									"value": "0",
-									"description": "Price range filter (default = MinPrice: 0, MaxPrice: 1000)",
-									"disabled": true
+									"description": "Price range filter (default = MinPrice: 0, MaxPrice: 1000)"
 								},
 								{
 									"key": "PriceRange.Max",
-									"value": "0",
-									"disabled": true
+									"value": "0"
 								},
 								{
 									"key": "RangeOfLectures.Min",
 									"value": "100",
-									"description": "Range of lectures filter (default = MinLectures: 0, MaxLectures: 1000)",
-									"disabled": true
+									"description": "Range of lectures filter (default = MinLectures: 0, MaxLectures: 1000)"
 								},
 								{
 									"key": "RangeOfLectures.Max",
-									"value": "150",
-									"disabled": true
+									"value": "150"
 								},
 								{
 									"key": "PageIndex",
-									"value": "1",
-									"description": "page you want to load",
-									"disabled": true
+									"value": "2",
+									"description": "page you want to load"
+								},
+								{
+									"key": "Categories",
+									"value": "1"
+								},
+								{
+									"key": "Categories",
+									"value": "2"
+								},
+								{
+									"key": "Categories",
+									"value": "3"
 								}
 							]
 						}
@@ -263,25 +260,6 @@
 								"api",
 								"Courses",
 								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Course By Id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/api/Courses/2",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"Courses",
-								"2"
 							]
 						}
 					},
@@ -355,7 +333,7 @@
 							"formdata": [
 								{
 									"key": "Title",
-									"value": "new Course",
+									"value": "Updated Course",
 									"type": "text"
 								},
 								{
@@ -376,16 +354,21 @@
 								{
 									"key": "CoverPicture",
 									"type": "file",
-									"src": "/C:/Users/20109/OneDrive/Desktop/Anime_Bromances_HunterxHunter_Killua_Gon.jpg"
+									"src": "/D:/Algoriza Internship/Final Project/coursesImgs/photo-1551288049-bebda4e38f71.jpeg"
 								},
 								{
 									"key": "InstructorId",
-									"value": "33",
+									"value": "2",
 									"type": "text"
 								},
 								{
 									"key": "CategoryId",
 									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "CousrseLevel",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -408,6 +391,44 @@
 					"name": "Delete Course  (Admin Only)",
 					"request": {
 						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Courses/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Courses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all course Levels (Admin Only)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Courses/levels",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Courses",
+								"levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course by id",
+					"request": {
+						"method": "GET",
 						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/api/Courses/2",
@@ -690,14 +711,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/instructors/2",
+							"raw": "{{baseUrl}}/api/instructors/1002",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"instructors",
-								"2"
+								"1002"
 							]
 						}
 					},
